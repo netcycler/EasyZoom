@@ -92,17 +92,17 @@
 
 			<ul class="cf zoom-gallery">
 				<li>
-					<a class="zoom-thumbnail" href="photos/1_large.jpg" rel="photos/1_medium.jpg">
+					<a class="zoom-thumbnail" href="photos/1_large.jpg" data-easyzoom-source="photos/1_medium.jpg">
 						<img src="photos/1_thumb.jpg" alt="" width="120" height="120" />
 					</a>
 				</li>
 				<li>
-					<a class="zoom-thumbnail" href="photos/2_large.jpg" rel="photos/2_medium.jpg">
+					<a class="zoom-thumbnail" href="photos/2_large.jpg" data-easyzoom-source="photos/2_medium.jpg">
 						<img src="photos/2_thumb.jpg" alt="" width="120" height="120" />
 					</a>
 				</li>
 				<li>
-					<a class="zoom-thumbnail" href="photos/3_large.jpg" rel="photos/3_medium.jpg">
+					<a class="zoom-thumbnail" href="photos/3_large.jpg" data-easyzoom-source="photos/3_medium.jpg">
 						<img src="photos/3_thumb.jpg" alt="" width="120" height="120" />
 					</a>
 				</li>
@@ -113,28 +113,32 @@
 	</div>
 
 	<!-- jQuery -->
-	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-	<script>if (!window.jQuery) document.writeln('<scr' + 'ipt src="js/jquery-1.7.min.js"></scr' + 'ipt>')</script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+	<script>if (!window.jQuery) document.writeln('<scr' + 'ipt src="js/jquery-1.7.1.min.js"></scr' + 'ipt>')</script>
 
 	<!-- EasyZoom -->
 	<script src="js/easyzoom.js"></script>
 	<script>
 	// Start easyZoom
-	$('#zoom')
-		.easyZoom({
-			parent: 'div.zoom-container',
-			preload: ''
-		})
-		.data('easyZoom')
-		.gallery('a.zoom-thumbnail');
-	</script>
+	var $zoom = $('#zoom').easyZoom({
+		parent: 'div.zoom-container',
+		preload: ''
+	});
 
-	<!-- http://mathiasbynens.be/notes/async-analytics-snippet -->
-	<script>
-		var _gaq=[['_setAccount','UA-2508361-9'],['_trackPageview']];
-		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g,s)}(document,'script'));
+	// Start gallery extension
+	$zoom.data('easyZoom').gallery('a.zoom-thumbnail');
+	</script>
+	
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2508361-9']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
 	</script>
 
 </body>
