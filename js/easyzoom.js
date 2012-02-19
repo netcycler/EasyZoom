@@ -1,10 +1,11 @@
 /**
- * Easy Zoom 1.0
+ * Easy Zoom 1.0.2
+ *
  * Written by Matt Hinchliffe <http://www.github.com/i-like-robots/EasyZoom>
  * Based on the original work by Alen Grakalic <http://cssglobe.com/post/9711/jquery-plugin-easy-image-zoom>
  *
- * Dual licensed under the MIT (MIT-LICENSE.txt)
- * and GPL (GPL-LICENSE.txt) licenses.
+ * This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License.
+ * <http://creativecommons.org/licenses/by-sa/3.0/>
  *
  * Built for jQuery library 1.7+
  * http://jquery.com
@@ -132,7 +133,7 @@
 						mouseover = true;
 						show(e);
 					}
-				});
+				}, false);
 				target.addEventListener('touchmove', function(e)
 				{
 					if (e.touches.length === 1)
@@ -144,12 +145,12 @@
 					{
 						self.ele.$target.trigger('mouseleave');
 					}
-				});
+				}, false);
 				target.addEventListener('touchend', function()
 				{
 					self.hide();
 					mouseover = false;
-				});
+				}, false);
 			}
 
 			return self;
