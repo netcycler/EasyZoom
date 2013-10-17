@@ -351,6 +351,9 @@
 				self.ele.$source.attr('src', source);
 				self.ele.$target.attr('href', zoomed);
 
+				// Update also the non-zoomable item image for mobile.
+				$('.mobile-item-image').attr('src', source);
+
 				self.update(zoomed);
 
 				$this.removeClass('thumbnail-loading');
